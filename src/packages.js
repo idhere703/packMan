@@ -1,5 +1,10 @@
 import { extractNpmArchiveTo } from './utils';
 import { getPackageDependencyTree } from './dependencies';
+import cp from 'child_process';
+import { resolve, relative } from 'path';
+import util from 'util';
+
+const exec = util.promisify(cp.exec);
 
 export default async function fetchPackage({name, reference}) {
 
